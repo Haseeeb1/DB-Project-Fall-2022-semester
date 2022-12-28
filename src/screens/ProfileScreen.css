@@ -1,6 +1,13 @@
 .profileScreen {
   height: 100vh;
   color: white;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(34, 48, 66, 0.6676470588235295) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 .profileScreen__body {
@@ -48,8 +55,15 @@
   color: #fff;
   background-color: #5a9a40;
   font-weight: 600;
-  border: none;
   cursor: pointer;
+  border-radius: 3px;
+  transition: ease-in-out 500ms;
+}
+
+.profileScreen__signOut:hover {
+  background: white;
+  color: black;
+  transition: ease-in-out 500ms;
 }
 
 .profileScreen__plans {

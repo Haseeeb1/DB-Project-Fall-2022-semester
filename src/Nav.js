@@ -26,6 +26,7 @@ function Nav() {
         src={logo}
         alt="Netflix Logo"
       />
+
       <img
         onClick={() => navigate("/profile")}
         className="nav__avatar"

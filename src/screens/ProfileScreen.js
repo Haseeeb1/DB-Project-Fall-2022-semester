@@ -31,6 +31,12 @@ function ProfileScreen() {
               >
                 Sign Out
               </button>
+              <button
+                onClick={() => navigate("/addEvent")}
+                className="profileScreen__signOut"
+              >
+                Add Event
+              </button>
             </div>
           </div>
         </div>

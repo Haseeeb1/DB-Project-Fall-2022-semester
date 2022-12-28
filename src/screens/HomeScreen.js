@@ -12,6 +12,7 @@ function HomeScreen() {
   return (
     <div className="homeScreen">
       <Nav />
+
       <Banner />
       <Row Category="Society/Batch Events" Data={Trending} />
       <Row Category="Sports" Data={Sports} />

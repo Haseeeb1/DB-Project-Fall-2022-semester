@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
 import ProfileScreen from "./screens/ProfileScreen";
 import Carddeatails from "./Carddeatails";
+import AddEvent from "./screens/AddEvent";
 
 function App() {
   const user = useSelector(selectUser);
@@ -40,6 +41,7 @@ function App() {
             <Route exact path="/profile" element={<ProfileScreen />} />
             <Route exact path="/event" element={<Carddeatails />} />
             <Route exact path="/" element={<HomeScreen />} />
+            <Route exact path="/addEvent" element={<AddEvent />} />
           </Routes>
         )}
       </Router>

@@ -201,14 +201,23 @@
   color: rgba(255, 255, 255, 0.05);
 }
 .container .card .content h3 {
-  font-size: 1.8em;
+  font-size: 2em;
   color: #ffff;
   z-index: 1;
   transition: 0.4s;
 }
+
 .container .card .content p {
   text-align: left;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 300 !important;
+  color: #e5dddd;
+  z-index: 1;
+  transition: 0.4s;
+}
+.container .card .content h4 {
+  text-align: left;
+  font-size: 14px;
   font-weight: 300 !important;
   color: #e5dddd;
   z-index: 1;
@@ -216,7 +225,7 @@
 }
 
 .container .card .content span {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600 !important;
   color: #5bba36;
   z-index: 1;

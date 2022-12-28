@@ -25,10 +25,10 @@ function Carddeatails() {
             <div class="content">
               <h2>01</h2>
               <h3>Description</h3>
-              <p className="Desc_ptag">
+              <h4 className="Desc_ptag">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </h4>
             </div>
           </div>
           <div class="card">
