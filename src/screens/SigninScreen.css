@@ -1,0 +1,134 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.signupScreen {
+  max-width: 300px;
+  padding: 70px;
+  margin-top: -3rem;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.signupScreen > form {
+  display: grid;
+  flex-direction: column;
+}
+
+.signupScreen > form > input {
+  outline-width: 0;
+  height: 40px;
+  margin-bottom: 14px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 15px;
+}
+
+.signupScreen > form > button {
+  padding: 16px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #5a9a40;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.signupScreen > form > h1 {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.signupScreen > form > h4 {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.signupScreen__gray {
+  color: gray;
+}
+
+.signupScreen__link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signinScreen__link {
+  margin-left: 6.5rem;
+}
+
+.signinScreen__link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signUpScreen {
+  min-width: 300px;
+
+  padding: 70px;
+  margin-top: -11rem;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.signUpScreen > form {
+  display: grid;
+  flex-direction: column;
+}
+
+.signUpScreen > form > input {
+  outline-width: 0;
+  height: 40px;
+  margin-bottom: 14px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 15px;
+}
+
+.signUpScreen > form > button {
+  padding: 16px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #5a9a40;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.signUpScreen > form > h1 {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.signUpScreen > form > h4 {
+  text-align: left;
+  margin-top: 30px;
+}
+input[type="file"]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #5a9a40;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #0d45a5;
+}
+
+.select_tag {
+  color: #5a9a40;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 3px;
+}
