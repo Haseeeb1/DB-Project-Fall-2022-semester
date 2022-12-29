@@ -27,7 +27,6 @@ function Row({ Category, isLargeRow, Data }) {
 
   return (
     <div>
-      (
       <div className="row">
         <h2>{Category}</h2>
         <div className="row__posters">
@@ -37,12 +36,6 @@ function Row({ Category, isLargeRow, Data }) {
                 navigate(`/event?eventId=${event.id}&eventName=${event.Name}`)
               }
               key={event.id}
-              // onClick={() =>
-              // openInNewTab(
-              // movie.name ? movie.name : movie.original_title,
-              //movie
-              //)
-              //}
               className={`row__poster ${isLargeRow && "row__posterLarge"}`}
               src={event.ImagePath}
               alt="EventPhoto"
@@ -50,7 +43,6 @@ function Row({ Category, isLargeRow, Data }) {
           ))}
         </div>
       </div>
-      )
     </div>
   );
 }
