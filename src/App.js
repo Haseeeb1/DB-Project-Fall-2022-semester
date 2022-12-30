@@ -13,7 +13,6 @@ import AddEvent from "./screens/AddEvent";
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  console.log(user);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
