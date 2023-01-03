@@ -32,7 +32,9 @@ function Row({ Category, isLargeRow, Data }) {
                   navigate(`/event?eventId=${event.id}&eventName=${event.Name}`)
                 }
               >
-                <div className="text">Click to learn more 🔍</div>
+                <div className="text">
+                  Click to learn more about {event.Name}🔍
+                </div>
               </div>
             </div>
           ))}
