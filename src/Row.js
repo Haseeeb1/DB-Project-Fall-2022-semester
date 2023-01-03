@@ -7,13 +7,6 @@ import { useNavigate } from "react-router-dom";
 function Row({ Category, isLargeRow, Data }) {
   const navigate = useNavigate();
 
-  /* const openInNewTab = (url, movie) => {
-    window.open(
-      `https://www.google.com/search?q=${url}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };*/
 
   /* useEffect(() => {
     async function fetchData() {
