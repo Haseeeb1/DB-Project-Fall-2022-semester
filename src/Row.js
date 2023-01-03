@@ -3,19 +3,14 @@ import axios from "./axios";
 import Carddeatails from "./Carddeatails";
 import "./Row.css";
 import { useNavigate } from "react-router-dom";
+import read from "./images/read_more.jpg";
 
 function Row({ Category, isLargeRow, Data }) {
   const navigate = useNavigate();
 
-
   /* useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(fetchUrl);
-      setMovies(request.data.results);
-      return request;
-    }
-    fetchData();
-  }, [fetchUrl]);
+    
+  }, []);
 */
 
   return (
@@ -24,15 +19,22 @@ function Row({ Category, isLargeRow, Data }) {
         <h2>{Category}</h2>
         <div className="row__posters">
           {Data.map((event) => (
-            <img
-              onClick={() =>
-                navigate(`/event?eventId=${event.id}&eventName=${event.Name}`)
-              }
-              key={event.id}
-              className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-              src={event.ImagePath}
-              alt="EventPhoto"
-            />
+            <div key={event.id} className="inner_div">
+              <img
+                key={event.id}
+                className="row__poster"
+                src={event.ImagePath}
+                alt="EventPhoto"
+              />
+              <div
+                className="overlay"
+                onClick={() =>
+                  navigate(`/event?eventId=${event.id}&eventName=${event.Name}`)
+                }
+              >
+                <div className="text">Click to learn more 🔍</div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
