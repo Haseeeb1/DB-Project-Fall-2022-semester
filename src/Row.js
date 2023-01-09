@@ -42,7 +42,7 @@ function Row({ Category, isLargeRow, Data }) {
                   <br />
                   <br />
                   <br />
-                  Learn More...
+                  Learn More..
                 </div>
               </div>
             </div>
