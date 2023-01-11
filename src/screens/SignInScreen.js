@@ -87,7 +87,7 @@ function SignInScreen() {
   ) : (
     <div className="signUpScreen">
       <form>
-        <h1>Sign In</h1>
+        <h1>Sign Up</h1>
         <input ref={emailRef} placeholder="Email" type="email" />
         <input ref={passwordRef} placeholder="Password" type="password" />
         <input ref={phoneRef} placeholder="Phone Number" type="number" />

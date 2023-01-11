@@ -5,8 +5,41 @@ import "./ProfileScreen.css";
 import { useSelector } from "react-redux";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import { Pagination, Navigation, Scrollbar, A11y } from "swiper";
+import AVTR1 from "../images/D2.png";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
 
 function ProfileScreen() {
+  const data = [
+    {
+      avatar: AVTR1,
+      name: "customer name",
+      review:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis   modi corrupti odit. Eaque, quis, reiciendis nam dolores deserunt    officia, ratione atque provident fuga error corrupti facere iste    dicta quisquam tenetur.",
+    },
+    {
+      avatar: AVTR1,
+      name: "customer name",
+      review:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis   modi corrupti odit. Eaque, quis, reiciendis nam dolores deserunt    officia, ratione atque provident fuga error corrupti facere iste    dicta quisquam tenetur.",
+    },
+    {
+      avatar: AVTR1,
+      name: "customer name",
+      review:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis   modi corrupti odit. Eaque, quis, reiciendis nam dolores deserunt    officia, ratione atque provident fuga error corrupti facere iste    dicta quisquam tenetur.",
+    },
+    {
+      avatar: AVTR1,
+      name: "customer name",
+      review:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis   modi corrupti odit. Eaque, quis, reiciendis nam dolores deserunt    officia, ratione atque provident fuga error corrupti facere iste    dicta quisquam tenetur.",
+    },
+  ];
+
   const user = useSelector(selectUser);
   const navigate = useNavigate();
   return (
@@ -41,6 +74,27 @@ function ProfileScreen() {
           </div>
         </div>
       </div>
+
+      <Swiper
+        className="container1 testimonials__container"
+        modules={[Pagination, Navigation, Scrollbar, A11y]}
+        navigation
+        spaceBetween={40}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+      >
+        {data.map(({ avatar, name, review }, index) => {
+          return (
+            <SwiperSlide key={index} className="testimonial">
+              <div className="client__avatar">
+                <img src={avatar} />
+              </div>
+              <h5 className="client__name">{name}</h5>
+              <small className="client__review">{review}</small>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
     </div>
   );
 }

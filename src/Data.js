@@ -4,7 +4,7 @@ const Sports = [
     Name: "MCS Chess Tournament",
     ImagePath:
       "https://img.freepik.com/free-vector/vintage-chess-competition-poster_1284-40125.jpg?w=2000",
-    Fee: "Free",
+    Fee: "0",
     Location: "Jinnah Coy",
     Date: "29-12-2022",
     Registered: "15",

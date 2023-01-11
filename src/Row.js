@@ -3,16 +3,10 @@ import axios from "./axios";
 import Carddeatails from "./Carddeatails";
 import "./Row.css";
 import { useNavigate } from "react-router-dom";
-import read from "./images/read_more.jpg";
 import star from "./images/star1.png";
 
 function Row({ Category, isLargeRow, Data }) {
   const navigate = useNavigate();
-
-  /* useEffect(() => {
-    
-  }, []);
-*/
 
   return (
     <div>
@@ -27,10 +21,6 @@ function Row({ Category, isLargeRow, Data }) {
                 src={event.ImagePath}
                 alt="EventPhoto"
               />
-              <div className="overlay1">
-                <img className="star_img" src={star} alt="fav" />
-              </div>
-
               <div
                 className="overlay"
                 onClick={() =>
@@ -42,7 +32,7 @@ function Row({ Category, isLargeRow, Data }) {
                   <br />
                   <br />
                   <br />
-                  Learn More..
+                  Learn More...
                 </div>
               </div>
             </div>

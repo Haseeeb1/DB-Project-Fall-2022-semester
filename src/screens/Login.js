@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./Login.css";
 import SignInScreen from "./SignInScreen";
 import logo from "../images/ooo.png";
+
 function Login() {
   const [signIn, setSignIn] = useState(false);
-
   return (
     <div className="loginScreen">
       <div className="loginScreen__background">
@@ -31,7 +31,7 @@ function Login() {
                   onClick={() => setSignIn(true)}
                   className="loginScreen__getStarted"
                 >
-                  REGISTER NOW
+                  SignIn Now
                 </button>
               </form>
             </div>

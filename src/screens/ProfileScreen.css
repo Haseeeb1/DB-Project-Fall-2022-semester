@@ -1,3 +1,20 @@
+:root {
+  --color-bg: #1f1f38;
+  --color-bg-variant: #2c2c6c;
+  --color-primary: #4bd5ff;
+  --color-primary-variant: rgba(77, 181, 255, 0.4);
+  --color-white: #fff;
+  --color-light: rgba(255, 255, 255, 0.6);
+  --transition: all 400ms ease;
+  --container-width-lg: 75%;
+  --container-width-md: 86%;
+  --container-width-sm: 90%;
+}
+
+.container {
+  width: var(--container-width-lg);
+  margin: 0 auto;
+}
 .profileScreen {
   height: 100vh;
   color: white;
@@ -16,7 +33,7 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 8%;
+  padding-top: 4%;
   max-width: 800px;
 }
 
@@ -83,4 +100,54 @@
 
 .profileScreen__plans > h6 {
   color: #5a9a40;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.container1 {
+  width: 40%;
+  margin: auto auto;
+  margin-top: 45px;
+}
+
+.client__avatar {
+  width: 4rem;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  border: 0.4rem solid var(--color-primary-variant);
+}
+
+.testimonial {
+  background: var(--color-bg-variant);
+  text-align: center;
+  padding: 2rem;
+  border-radius: 2rem;
+  user-select: none;
+  max-width: 550px;
+}
+
+.client__review {
+  color: var(--color-light);
+  font-weight: 300;
+  display: block;
+  width: 70%;
+  margin: 0.8rem auto 0;
+}
+
+.container1.testimonials__container {
+  width: 40%;
+  margin-left: 32.1rem;
+  cursor: pointer;
+}
+
+.review {
+  font-size: 30px;
 }
