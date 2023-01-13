@@ -97,8 +97,9 @@ input::-webkit-inner-spin-button {
 }
 
 .add_btn:hover {
-  transition: ease-in-out 350ms;
-  background: #0d45a5;
+  background: white;
+  color: black;
+  transition: ease-in-out 500ms;
 }
 
 .addEventScreen > form {

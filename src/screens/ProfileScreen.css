@@ -289,5 +289,21 @@ input:focus,
 .btn_div {
   display: flex;
   justify-content: center;
-  margin-right: 420px;
+  margin-right: 380px;
+}
+
+.review_tag1 {
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  color: #ffffff;
+  border-radius: 1px;
+  background-color: #5a9a40;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+.review_tag1:hover {
+  background: white;
+  color: black;
+  transition: ease-in-out 500ms;
 }

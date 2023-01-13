@@ -139,7 +139,7 @@ function ProfileScreen() {
               </div>
             </div>
             <div className="btn_div">
-              <button onClick={() => setHide(false)} className="review_tag">
+              <button onClick={() => setHide(false)} className="review_tag1">
                 Add review
               </button>
             </div>
