@@ -8,13 +8,12 @@ function AddEvent() {
   const [signUpForm, setSignUpForm] = useState(false);
 
   const NameRef = useRef(null);
-  const idRef = useRef(null);
   const LocationRef = useRef(null);
   const DateRef = useRef(null);
   const MaxRef = useRef(null);
   const FeeRef = useRef(null);
   const DescRef = useRef(null);
-  const LinkRef = useRef(null);
+
   const TypeRef = useRef(null);
   const [image, setImage] = React.useState();
 
@@ -28,13 +27,11 @@ function AddEvent() {
     e.preventDefault();
     if (
       NameRef.current.value == "" ||
-      idRef.current.value == "" ||
       LocationRef.current.value == "" ||
       DateRef.current.value == "" ||
       MaxRef.current.value == "" ||
       FeeRef.current.value == "" ||
       DescRef.current.value == "" ||
-      LinkRef.current.value == "" ||
       TypeRef.current.value == ""
     ) {
       toast.error("Incomplete Credentials");
@@ -66,14 +63,9 @@ function AddEvent() {
               </div>
             </section>
             <input ref={NameRef} placeholder="Event Name" type="text" />
-            <input ref={idRef} placeholder="ID" type="number" />
+
             <input ref={FeeRef} placeholder="Fee" type="number" />
 
-            <input
-              ref={LinkRef}
-              type="text"
-              placeholder="Registeration Form Link"
-            />
             <input ref={LocationRef} placeholder="Location" type="text" />
             <input ref={DescRef} type="text" placeholder="Description" />
 
