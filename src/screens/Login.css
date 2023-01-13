@@ -3,6 +3,7 @@
   height: 100%;
   background: url("../images/Screenshot\ \(676\).png") center no-repeat;
   background-size: cover;
+  user-select: none;
 }
 
 .loginScreen__logo {
@@ -11,7 +12,7 @@
   width: 150px;
   object-fit: contain;
   padding-left: 20px;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .loginScreen__gradient {
   width: 100%;
@@ -78,14 +79,20 @@
 }
 
 .loginScreen__getStarted {
-  padding: 16px 20px;
+  padding: 11px 14px;
   font-size: 1rem;
   color: #fff;
   background-color: #5a9a40;
   border: none;
   cursor: pointer;
+  border-radius: 3px;
 }
 
+.loginScreen__getStarted:hover {
+  background: white;
+  color: black;
+  transition: ease-in-out 500ms;
+}
 .loginScreen__input {
   margin: 20px;
 }

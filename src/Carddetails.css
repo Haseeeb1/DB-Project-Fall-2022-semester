@@ -2,6 +2,9 @@
   padding-top: 2rem;
   overflow: hidden;
 }
+* {
+  user-select: none;
+}
 .event_image {
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;

@@ -94,7 +94,7 @@ function ProfileScreen() {
               >
                 Add Event
               </button>
-              <h6 onClick={() => setHide(true)} className="review_tag">
+              <h6 onClick={() => setHide(!hide)} className="review_tag">
                 Add a review
               </h6>
             </div>

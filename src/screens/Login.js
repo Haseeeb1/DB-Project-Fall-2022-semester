@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import SignInScreen from "./SignInScreen";
-import logo from "../images/ooo.png";
+import logo from "../images/endlogo3.svg";
 
 function Login() {
   const [signIn, setSignIn] = useState(false);

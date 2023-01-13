@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -12,7 +12,7 @@ import AddEvent from "./screens/AddEvent";
 import { useCookies } from "react-cookie";
 
 function App() {
-  const user = useSelector(selectUser);
+  const [user, setUser] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -62,7 +62,10 @@ function App() {
     <div className="app">
       <Router>
         {!user ? (
-          <Login />
+          <>
+            <Login />
+            <button onClick={() => setUser(true)}>h</button>
+          </>
         ) : (
           <Routes>
             <Route exact path="/profile" element={<ProfileScreen />} />

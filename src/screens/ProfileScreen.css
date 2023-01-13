@@ -22,9 +22,9 @@
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(34, 48, 66, 0.6676470588235295) 100%,
-    rgba(0, 212, 255, 1) 100%
+    rgb(0, 0, 0) 0%,
+    rgba(12, 57, 67, 0.668) 100%,
+    rgb(18, 153, 157) 100%
   );
 }
 
@@ -157,6 +157,11 @@ html {
   border-top: 1px solid #282c2d;
   margin-top: 14px;
   cursor: pointer;
+  transition: all 500ms;
+  font-size: 12px;
+}
+.review_tag:hover {
+  color: #fff;
 }
 
 .radio_div {

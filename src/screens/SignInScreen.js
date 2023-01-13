@@ -221,7 +221,7 @@ function SignInScreen() {
         <h1>Sign In</h1>
         <input ref={emailRef} placeholder="Email" type="email" />
         <input ref={passwordRef} placeholder="Password" type="password" />
-        <button type="submit" onClick={signIn}>
+        <button className="signin_btn" type="submit" onClick={signIn}>
           Sign In
         </button>
         <h4>
@@ -252,7 +252,7 @@ function SignInScreen() {
         />
         <h5 className="select_tag">Select Image</h5>
         <input type="file" /*onChange={(e) => onFileChange(e)}*/ />
-        <button type="submit" onClick={signUp}>
+        <button className="signin_btn" type="submit" onClick={signUp}>
           Sign Up
         </button>
         <h4>

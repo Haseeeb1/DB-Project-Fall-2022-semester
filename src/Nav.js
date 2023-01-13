@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Nav.css";
 import { useNavigate } from "react-router-dom";
-import logo from "./images/oooo.jpg";
+import logo from "./images/endlogo3.svg";
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/userSlice.js";
 

@@ -1,3 +1,10 @@
 .homeScreen {
   user-select: none;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgb(0, 0, 0) 0%,
+    rgba(7, 55, 65, 0.668) 100%,
+    rgb(18, 153, 157) 100%
+  );
 }
