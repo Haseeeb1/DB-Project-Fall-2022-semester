@@ -1,27 +1,26 @@
 import Nav from "../Nav";
 import React, { useRef, useState } from "react";
-import { auth } from "../firebase";
 import toast, { Toaster } from "react-hot-toast";
 import "./Addevent.css";
+import axios from "axios";
+import { login, logout, selectUser } from "..//features/userSlice";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function AddEvent() {
-  const [signUpForm, setSignUpForm] = useState(false);
+  // const user = useSelector(selectUser);
+  // const [signUpForm, setSignUpForm] = useState(false);
+  //const [file, setFile] = useState(null);
+  const navigate = useNavigate();
 
   const NameRef = useRef(null);
   const LocationRef = useRef(null);
   const DateRef = useRef(null);
   const MaxRef = useRef(null);
   const FeeRef = useRef(null);
-  const DescRef = useRef(null);
-
-  const TypeRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const categoryRef = useRef(null);
   const [image, setImage] = React.useState();
-
-  /*validateWebsiteUrl = websiteUrl => {
-    const urlRegEx =
-      '[-a-zA-Z0-9@:%_+.~#?&//=]{2,256}(.[a-z]{2,4})?\b(/[-a-zA-Z0-9@:%_+.~#?&//=]*)?';
-    return urlRegEx.test(String(websiteUrl).toLowerCase());
-  };*/
 
   const signUp = (e) => {
     e.preventDefault();
@@ -31,8 +30,8 @@ function AddEvent() {
       DateRef.current.value == "" ||
       MaxRef.current.value == "" ||
       FeeRef.current.value == "" ||
-      DescRef.current.value == "" ||
-      TypeRef.current.value == ""
+      descriptionRef.current.value == "" ||
+      categoryRef.current.value == ""
     ) {
       toast.error("Incomplete Credentials");
     } else if (!image) toast.error("Add Image to complete the form.");
@@ -43,6 +42,71 @@ function AddEvent() {
       }
     }
   };
+
+  /* const addEvent = (e) => {
+    e.preventDefault();
+    if (
+      NameRef.current.value == "" ||
+      categoryRef.current.value == "" ||
+      LocationRef.current.value == "" ||
+      DateRef.current.value == "" ||
+      FeeRef.current.value == "" ||
+      descriptionRef == "" ||
+      MaxRef.current.value == ""
+    ) {
+      toast.error("Incomplete Credentials");
+      // } else if (!image) toast.error("Add Image to complete the form.");
+      // else {
+      //   if (image.size > 2097152) {
+      //     toast.error("Image too large, Maximum limit is 2mb.");
+      //     return;
+      //   }
+      // }
+    } else {
+      console.log(NameRef.current.value);
+      const formData = new FormData();
+      formData.append("name", NameRef.current.value);
+      formData.append("location", LocationRef.current.value);
+      formData.append("description", descriptionRef.current.value);
+      formData.append("registration_fee", FeeRef.current.value);
+      formData.append("people_going", 0);
+      formData.append("category", categoryRef.current.value);
+      formData.append("created_by", user.uid);
+      formData.append("date", DateRef.current.value);
+      console.log(formData);
+      formData.append("image", file);
+      axios
+        .post("http://localhost:5000/events", formData)
+        .then((ev) => {
+          console.log(ev.data);
+          NameRef.current.value = "";
+          categoryRef.current.value = "";
+          LocationRef.current.value = "";
+          DateRef.current.value = "";
+          FeeRef.current.value = "";
+          descriptionRef.current.value = "";
+          toast.success("Event Has Been Added!!!");
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error("Sorry Cant Add Event At The Moments");
+        });
+    }
+  };
+ 
+
+  const onFileChange = async (e) => {
+    e.preventDefault();
+    setFile(e.target.files[0]);
+    // const data = new FormData();
+    // data.append("image", e.target.files[0]);
+    // console.log(data);
+    //   await axios.post('http://localhost:5000/single', data)
+    //   toast.success("Event Has Been Added!!!")})
+    //   .catch(() => )
+  };
+   */
+
   return (
     <div className="AddEvent_screen">
       <Nav />
@@ -67,9 +131,9 @@ function AddEvent() {
             <input ref={FeeRef} placeholder="Fee" type="number" />
 
             <input ref={LocationRef} placeholder="Location" type="text" />
-            <input ref={DescRef} type="text" placeholder="Description" />
+            <input ref={descriptionRef} type="text" placeholder="Description" />
 
-            <select ref={TypeRef} name="Event" id="types">
+            <select ref={categoryRef} name="Event" id="types">
               <option value="main campus">Main Campus</option>
               <option value="sports">Sports</option>
               <option value="seminar">Seminar</option>
@@ -85,19 +149,28 @@ function AddEvent() {
               />
             </div>
             <h5 className="select_tag">Select Image</h5>
-            <input
-              onChange={(e) => setImage(e.target.files[0])}
-              type="file"
-              id="image-upload"
-              accept="image/png ,image/jpeg"
-            />
-            <button className="add_btn" type="submit" onClick={signUp}>
+            <input type="file" /*onChange={(e) => onFileChange(e)}*/ />
+            <button
+              className="add_btn"
+              type="submit"
+              onClick={signUp} /*onClick={addEvent}*/
+            >
               Add Event
             </button>
           </form>
-          <Toaster />
         </div>
       </div>
+      <Toaster
+        toastOptions={{
+          success: {
+            duration: 3000,
+            theme: {
+              primary: "green",
+              secondary: "black",
+            },
+          },
+        }}
+      />
     </div>
   );
 }

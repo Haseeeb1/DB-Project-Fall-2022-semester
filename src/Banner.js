@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "./axios";
 import requests from "./requests";
 import "./Banner.css";
 import BG from "./images/Logo1.png";

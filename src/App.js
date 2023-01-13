@@ -9,6 +9,7 @@ import { login, logout, selectUser } from "./features/userSlice";
 import ProfileScreen from "./screens/ProfileScreen";
 import Carddeatails from "./Carddeatails";
 import AddEvent from "./screens/AddEvent";
+import { useCookies } from "react-cookie";
 
 function App() {
   const user = useSelector(selectUser);
@@ -29,6 +30,33 @@ function App() {
     });
     return unsubscribe;
   }, [dispatch]);
+
+  /*const [cookies, setCookies, removeCookies] = useCookies('[users]');
+    console.log(user);
+
+     const checkUserAndDispatch = () => {
+      console.log('cookies', cookies);
+      if(cookies.uid && cookies.email){
+        console.log('Login Dispatched')
+        dispatch(
+               login({
+                uid: cookies.uid,
+                email: cookies.email,
+                isAdmin: cookies.isAdmin,
+                image: cookies.image
+                }))
+      }
+      else{
+        console.log('Dispatch Logout')
+        dispatch(logout());
+      }
+      console.log('Ye Wala',user)
+    }
+    
+  useEffect(() =>{
+    checkUserAndDispatch();
+  }, [dispatch])
+    */
 
   return (
     <div className="app">

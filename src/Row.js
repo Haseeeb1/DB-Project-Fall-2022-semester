@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "./axios";
 import Carddeatails from "./Carddeatails";
 import "./Row.css";
 import { useNavigate } from "react-router-dom";
@@ -18,9 +17,11 @@ function Row({ Category, isLargeRow, Data }) {
               <img
                 key={event.id}
                 className="row__poster"
+                /*src={`http://localhost:5000/resources/${event.image}`}*/
                 src={event.ImagePath}
                 alt="EventPhoto"
               />
+              {/*{event.isFav && <StarIcon />}*/}
               <StarIcon />
               <div
                 className="overlay"

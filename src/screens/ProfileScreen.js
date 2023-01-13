@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
-import { selectUser } from "../features/userSlice";
 import Nav from "../Nav";
 import "./ProfileScreen.css";
-import { useSelector } from "react-redux";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "../features/userSlice.js";
 import { Pagination, Navigation, Scrollbar, A11y } from "swiper";
 import AVTR1 from "../images/D2.png";
-
+import { useCookies } from "react-cookie";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -44,6 +44,10 @@ function ProfileScreen() {
 
   const user = useSelector(selectUser);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // const [cookies, setCookies, removeCookies] = useCookies("[users]");
+
   return (
     <div className="profileScreen">
       <Nav />
@@ -61,11 +65,29 @@ function ProfileScreen() {
               <h6>Remove Account?</h6>
 
               <button
-                onClick={() => auth.signOut()}
+                /*   onClick={() => {
+                  removeCookies('uid');
+                  removeCookies('email');
+                  removeCookies('isAdmin')
+                  dispatch(logout());
+                  navigate('/');
+                  window.location.reload()
+                }
+                }
+
+{user.isAdmin && <button
+                onClick={() => navigate("/addEvent")}
+                className="profileScreen__signOut"
+              >
+                Add Event
+              </button>}
+                
+                */
                 className="profileScreen__signOut"
               >
                 Sign Out
               </button>
+
               <button
                 onClick={() => navigate("/addEvent")}
                 className="profileScreen__signOut"
