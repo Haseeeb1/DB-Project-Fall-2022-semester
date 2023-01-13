@@ -148,7 +148,9 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"]::file-selector-button:hover {
-  background: #0d45a5;
+  background: white;
+  color: black;
+  transition: ease-in-out 500ms;
 }
 
 .select_tag {
@@ -210,13 +212,13 @@ p {
 }
 
 .first div {
-  background-color: #20a7d8;
+  background-color: #5a9a40;
 }
 .second div {
   background-color: #cd921e;
 }
 .third div {
-  background-color: #c10528;
+  background-color: #1505c1;
 }
 
 @keyframes text-animation {

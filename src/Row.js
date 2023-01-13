@@ -3,7 +3,7 @@ import axios from "./axios";
 import Carddeatails from "./Carddeatails";
 import "./Row.css";
 import { useNavigate } from "react-router-dom";
-import star from "./images/star1.png";
+import StarIcon from "@mui/icons-material/Star";
 
 function Row({ Category, isLargeRow, Data }) {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function Row({ Category, isLargeRow, Data }) {
   return (
     <div>
       <div className="row">
-        <h2>{Category}</h2>
+        <h2 className="main_tag">{Category}</h2>
         <div className="row__posters">
           {Data.map((event) => (
             <div key={event.id} className="inner_div">
@@ -21,6 +21,7 @@ function Row({ Category, isLargeRow, Data }) {
                 src={event.ImagePath}
                 alt="EventPhoto"
               />
+              <StarIcon />
               <div
                 className="overlay"
                 onClick={() =>

@@ -17,7 +17,7 @@ function Carddeatails() {
   const search = useLocation().search;
   const id = new URLSearchParams(search).get("eventId");
   const name = new URLSearchParams(search).get("eventName");
-  const data = Sports.find((obj) => {
+  const data = MainCampus.find((obj) => {
     if (obj.Name === name && obj.id == id) {
       return obj;
     }
@@ -105,40 +105,3 @@ function Carddeatails() {
 }
 
 export default Carddeatails;
-
-/* <div className="container experience__container">
-          <div className="experience__frontend">
-            <h3 className="details_Tag">Details</h3>
-            <div className="experience__content">
-              <article className="experience__details">
-                <div>
-                  <h4 className="details_item">Fee</h4>
-                  <small className="text-light">{data.Fee}</small>
-                </div>
-              </article>
-              <article className="experience__details">
-                <div>
-                  <h4 className="details_item">Location</h4>
-                  <small className="text-light">{data.Location}</small>
-                </div>
-              </article>
-              <article className="experience__details">
-                <div>
-                  {" "}
-                  <h4 className="details_item">Registered</h4>
-                  <small className="text-light">
-                    {data.Registered}/{data.Totalseats}
-                  </small>{" "}
-                </div>
-              </article>
-              <article className="experience__details">
-                <div>
-                  {" "}
-                  <h4 className="details_item">Date</h4>
-                  <small className="text-light">{data.Date}</small>{" "}
-                </div>
-              </article>
-            </div>
-            </div>
-            1
-            */

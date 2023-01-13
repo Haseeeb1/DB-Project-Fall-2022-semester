@@ -5,8 +5,6 @@ import "./Banner.css";
 import BG from "./images/Logo1.png";
 
 function Banner() {
-  const [movie, setMovie] = useState([]);
-  const [newMovie, setNewMovie] = useState(0);
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
@@ -46,17 +44,16 @@ function Banner() {
         <h1 className="banner__title">Welcome BESE-28</h1>
         <div className="banner__buttons">
           <button
-            // onClick={() => openInNewTab(movie.name)}
-            className="banner__button"
-          >
-            Register
-          </button>
-
-          <button
             //onClick={() => setNewMovie(newMovie + 1)}
             className="banner__button"
           >
             Add to Favorites
+          </button>
+          <button
+            // onClick={() => openInNewTab(movie.name)}
+            className="banner__button"
+          >
+            Details
           </button>
         </div>
         <h1 className="banner__description">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { selectUser } from "../features/userSlice";
 import Nav from "../Nav";
 import "./ProfileScreen.css";
@@ -13,6 +13,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 function ProfileScreen() {
+  const [hide, setHide] = useState(false);
+  const reviewRef = useRef(null);
   const data = [
     {
       avatar: AVTR1,
@@ -70,31 +72,80 @@ function ProfileScreen() {
               >
                 Add Event
               </button>
+              <h6 onClick={() => setHide(true)} className="review_tag">
+                Add a review
+              </h6>
             </div>
           </div>
         </div>
       </div>
+      {!hide ? (
+        <Swiper
+          className="container1 testimonials__container"
+          modules={[Pagination, Navigation, Scrollbar, A11y]}
+          navigation
+          spaceBetween={40}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+        >
+          {data.map(({ avatar, name, review }, index) => {
+            return (
+              <SwiperSlide key={index} className="testimonial">
+                <div className="client__avatar">
+                  <img src={avatar} />
+                </div>
+                <h5 className="client__name">{name}</h5>
+                <small className="client__review">{review}</small>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      ) : (
+        <div className="review_div">
+          <div className="innerreview_div">
+            <div className="text_div">
+              <textarea
+                className="text_rev"
+                placeholder="Start typing the review..."
+                ref={reviewRef}
+                cols="84"
+                rows="5"
+              />
+            </div>
+            <div className="radio_div">
+              <div className="container3">
+                <h2>
+                  {" "}
+                  Have you registered for a event through our website before?
+                </h2>
 
-      <Swiper
-        className="container1 testimonials__container"
-        modules={[Pagination, Navigation, Scrollbar, A11y]}
-        navigation
-        spaceBetween={40}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-      >
-        {data.map(({ avatar, name, review }, index) => {
-          return (
-            <SwiperSlide key={index} className="testimonial">
-              <div className="client__avatar">
-                <img src={avatar} />
+                <ul>
+                  <li>
+                    <input type="radio" id="f-option" name="selector" />
+                    <label for="f-option">Yes</label>
+
+                    <div className="check"></div>
+                  </li>
+
+                  <li>
+                    <input type="radio" id="s-option" name="selector" />
+                    <label for="s-option">No</label>
+
+                    <div className="check">
+                      <div className="inside"></div>
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <h5 className="client__name">{name}</h5>
-              <small className="client__review">{review}</small>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+            </div>
+            <div className="btn_div">
+              <button onClick={() => setHide(false)} className="review_tag">
+                Add review
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -22,8 +22,8 @@ function Login() {
           <SignInScreen />
         ) : (
           <>
-            <h1>Seminars ,Sports ,Welcome parties and more.</h1>
-            <h2>Register for your favorite events or save them for later.</h2>
+            <h1>Seminars,Sports,Main Campus Events and more.</h1>
+            <h2>Register for your favorite events and pay directly.</h2>
             <h3>SignIn or create an Account to start</h3>
             <div className="loginScreen__input">
               <form>
