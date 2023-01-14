@@ -254,3 +254,24 @@ p {
     margin-top: 0;
   }
 }
+
+.waviy {
+  position: relative;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 500;
+  color: rgb(174, 174, 174);
+  text-transform: uppercase;
+  animation: flip 6s infinite;
+  margin-bottom: 25px;
+  margin-top: -5px;
+}
+@keyframes flip {
+  0%,
+  80% {
+    transform: rotateY(360deg);
+  }
+}

@@ -10,6 +10,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import Carddeatails from "./Carddeatails";
 import AddEvent from "./screens/AddEvent";
 import { useCookies } from "react-cookie";
+import UpdateEvent from "./screens/UpdateEvent";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -72,6 +73,7 @@ function App() {
             <Route exact path="/event" element={<Carddeatails />} />
             <Route exact path="/" element={<HomeScreen />} />
             <Route exact path="/addEvent" element={<AddEvent />} />
+            <Route exact path="/updateEvent" element={<UpdateEvent />} />
           </Routes>
         )}
       </Router>

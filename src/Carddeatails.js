@@ -26,6 +26,7 @@ function Carddeatails() {
       return obj;
     }
   });
+  const navigate = useNavigate();
 
   /* 
   const user = useSelector(selectUser);
@@ -125,6 +126,22 @@ function Carddeatails() {
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </h4>
+                <h6
+                  onClick={() =>
+                    navigate(
+                      `/updateEvent?name=${data.Name}&image=${
+                        data.ImagePath
+                      }&fee=${data.Fee}&location=${
+                        data.Location
+                      }&desc=${"Lorem ipsum"}&date=${data.Date}&seats=${
+                        data.Totalseats
+                      }&category=${"Sports"}`
+                    )
+                  }
+                  className="edit_event"
+                >
+                  Edit Event details
+                </h6>
               </div>
             </div>
             <div class="card">
