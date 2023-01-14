@@ -6,17 +6,21 @@ import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "../features/userSlice";
 import axios from "axios";
+import copy from "copy-to-clipboard";
 
 function SignInScreen() {
   const user = useSelector(selectUser);
   const [signUpForm, setSignUpForm] = useState(false);
+  const [forgetForm, setForgetForm] = useState(false);
   const [file, setFile] = useState(null);
+  const [retreivedPassword, setRetreivedPassword] = useState();
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const phoneRef = useRef(null);
   const DOBRef = useRef(null);
+  const securityQuesRef = useRef(null);
   const [image, setImage] = React.useState();
   // const [cookies, setCookies, removeCookies] = useCookies("[users]");
 
@@ -112,10 +116,12 @@ function SignInScreen() {
     //   emailRef.current.value === "" ||
     //   passwordRef.current.value === "" ||
     //   phoneRef.current.value === "" ||
-    //   regIDRef.current.value === ""
+    //   regIDRef.current.value === "" ||
+    //   securityQuesRef.current.value===""      
     // ) {
     //   toast.error("Incomplete Credentials");
-    // } else if (!isValidEmail(emailRef.current.value)) {
+    // } 
+    //   else if (!isValidEmail(emailRef.current.value)) {
     //   toast.error("Email is invalid.");
     // } else if (passwordRef.current.value.length < 7) {
     //   toast.error("Password too short.");
@@ -169,6 +175,15 @@ function SignInScreen() {
     return /\S+@\S+\.\S+/.test(email);
   }
 
+  const setAll = () => {
+    setForgetForm(true);
+    setSignUpForm(true);
+  };
+
+  const setOne = () => {
+    setForgetForm(false);
+    setSignUpForm(true);
+  };
   const signUp = (e) => {
     e.preventDefault();
     if (
@@ -176,7 +191,8 @@ function SignInScreen() {
       emailRef.current.value == "" ||
       passwordRef.current.value == "" ||
       phoneRef.current.value == "" ||
-      DOBRef.current.value == ""
+      DOBRef.current.value == "" ||
+      securityQuesRef.current.value == ""
     ) {
       toast.error("Incomplete Credentials");
     } else if (!isValidEmail(emailRef.current.value)) {
@@ -215,6 +231,22 @@ function SignInScreen() {
     }
   };
 
+  const copyText = () => {
+    if (!retreivedPassword) return;
+    navigator.clipboard.writeText(retreivedPassword);
+    toast.success("Password copied to clipboard", {
+      duration: 2000,
+      position: "top-center",
+      style: {},
+      className: "",
+      icon: "👏",
+      iconTheme: {
+        primary: "#000",
+        secondary: "#fff",
+      },
+    });
+  };
+
   return !signUpForm ? (
     <div className="signupScreen">
       <form>
@@ -224,20 +256,21 @@ function SignInScreen() {
         <button className="signin_btn" type="submit" onClick={signIn}>
           Sign In
         </button>
-        <h4>
+        <h4 className="new_page">
           <span className="signupScreen__gray">New to the Page? </span>
-          <span
-            onClick={() => setSignUpForm(true)}
-            className="signupScreen__link"
-          >
+          <span onClick={setOne} className="signupScreen__link">
             {" "}
             Sign Up now.
           </span>
         </h4>
+
+        <h4 onClick={setAll} className="for_pass">
+          Forgot Password!
+        </h4>
       </form>
       <Toaster />
     </div>
-  ) : (
+  ) : !forgetForm ? (
     <div className="signUpScreen">
       <form>
         <h1>Sign Up</h1>
@@ -245,17 +278,73 @@ function SignInScreen() {
         <input ref={emailRef} placeholder="Email" type="email" />
         <input ref={passwordRef} placeholder="Password" type="password" />
         <input ref={phoneRef} placeholder="Phone Number" type="number" />
+
         <input
           ref={DOBRef}
           placeholder="Date Of Birth(DD-MM-YYYY)"
           type="date"
+        />
+        <p className="security__ques">Name of your elementary school?</p>
+        <input
+          ref={securityQuesRef}
+          placeholder="Security Question"
+          type="text"
         />
         <h5 className="select_tag">Select Image</h5>
         <input type="file" /*onChange={(e) => onFileChange(e)}*/ />
         <button className="signin_btn" type="submit" onClick={signUp}>
           Sign Up
         </button>
-        <h4>
+        <h4 className="h4_form">
+          <span
+            onClick={() => setSignUpForm(false)}
+            className="signinScreen__link"
+          >
+            {" "}
+            Back to logIn
+          </span>
+        </h4>
+      </form>
+      <Toaster />
+    </div>
+  ) : (
+    <div className="signUpScreen1">
+      <form>
+        <h1>Forgot Password</h1>
+        <p className="security__ques">Enter details below!</p>
+        <input ref={nameRef} placeholder="Full Name" type="text" />
+        <input ref={emailRef} placeholder="Email" type="email" />
+        <input
+          ref={DOBRef}
+          placeholder="Date Of Birth(DD-MM-YYYY)"
+          type="date"
+        />
+        <p className="security__ques">Name of your elementary school?</p>
+        <input
+          ref={securityQuesRef}
+          placeholder="Security Question"
+          type="text"
+        />
+        <button className="signin_btn" type="submit" onClick={signUp}>
+          Retrieve Password
+        </button>
+        <div className="hover_div">
+          <h5 className="hover_text">Hover white strip to reveal password.</h5>
+          <p
+            onMouseEnter={copyText}
+            className={retreivedPassword ? "spoiler" : "spoiler1"}
+          >
+            {retreivedPassword ? (
+              <>
+                Your password is : &nbsp;<span>{retreivedPassword}</span>
+              </>
+            ) : (
+              "Enter correct details and click the button."
+            )}
+          </p>
+        </div>
+
+        <h4 className="h4_form">
           <span
             onClick={() => setSignUpForm(false)}
             className="signinScreen__link"

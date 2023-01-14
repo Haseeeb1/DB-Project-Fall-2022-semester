@@ -114,7 +114,7 @@ function AddEvent() {
       <div className="loginScreen__body">
         <div className="addEventScreen">
           <form>
-            <p>Add a new</p>
+            <p className="top_tag">Add a new</p>
             <section className="animation">
               <div className="first">
                 <div>Seminar/Sports Event</div>

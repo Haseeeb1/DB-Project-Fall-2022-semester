@@ -44,9 +44,10 @@ input::-webkit-inner-spin-button {
   margin-bottom: 25px;
 }
 
-.signupScreen > form > h4 {
+.new_page {
   text-align: left;
   margin-top: 30px;
+  transition: all 1000ms;
 }
 
 .signupScreen__gray {
@@ -56,6 +57,8 @@ input::-webkit-inner-spin-button {
 .signupScreen__link:hover {
   cursor: pointer;
   text-decoration: underline;
+  transition: all 500ms;
+  color: #5a9a40;
 }
 
 .signinScreen__link {
@@ -71,7 +74,7 @@ input::-webkit-inner-spin-button {
   min-width: 300px;
 
   padding: 70px;
-  margin-top: -11rem;
+  margin-top: -12rem;
   margin-left: auto;
   margin-right: auto;
   background: rgba(0, 0, 0, 0.4);
@@ -84,8 +87,8 @@ input::-webkit-inner-spin-button {
 
 .signUpScreen > form > input {
   outline-width: 0;
-  height: 40px;
-  margin-bottom: 14px;
+  height: 35px;
+  margin-bottom: 8px;
   border-radius: 5px;
   border: none;
   padding: 5px 15px;
@@ -100,18 +103,25 @@ input::-webkit-inner-spin-button {
   font-weight: 600;
   border: none;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .signUpScreen > form > h1 {
   text-align: left;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-.signUpScreen > form > h4 {
+.h4_form {
   text-align: left;
-  margin-top: 30px;
+  margin-top: 20px;
 }
+.h4_form:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 500ms;
+  color: #5a9a40;
+}
+
 input[type="file"]::file-selector-button {
   margin-right: 20px;
   border: none;
@@ -141,10 +151,124 @@ input[type="file"]::file-selector-button:hover {
   border: none;
   cursor: pointer;
   border-radius: 3px;
+  transition: all 500ms;
 }
 
 .signin_btn:hover {
   background: white;
   color: black;
-  transition: ease-in-out 500ms;
+  transition: all 500ms;
+}
+
+.for_pass {
+  border-top: 1px solid #282c2d;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  transition: all 500ms;
+  font-size: 12px;
+}
+.for_pass:hover {
+  color: #5a9a40;
+  cursor: pointer;
+}
+
+.security__ques {
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.signUpScreen1 {
+  min-width: 300px;
+
+  padding: 70px;
+  margin-top: -9rem;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.signUpScreen1 > form {
+  display: grid;
+  flex-direction: column;
+}
+
+.signUpScreen1 > form > input {
+  outline-width: 0;
+  height: 35px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 15px;
+}
+
+.signUpScreen1 > form > button {
+  padding: 16px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #5a9a40;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.signUpScreen1 > form > h1 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.hover_div {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.spoiler {
+  color: transparent;
+  background-position: right;
+  background-size: 100% 100%;
+  background-image: linear-gradient(white, white);
+  display: inline;
+  background-repeat: no-repeat;
+  cursor: -webkit-grab;
+  transition: all 500ms ease-in-out;
+  font-size: 17px;
+}
+
+.spoiler:hover {
+  color: rgb(255, 255, 255);
+  background-size: 0% 100%;
+}
+.spoiler:hover > span {
+  user-select: text;
+  color: red;
+}
+.spoiler > span {
+  letter-spacing: 3px;
+}
+
+.hover_text {
+  margin-top: 15px;
+  margin-bottom: 7px;
+  font-size: 15px;
+  font-weight: 400;
+  border-top: 1px solid #5a9a40;
+}
+
+.spoiler1 {
+  color: transparent;
+  background-position: right;
+  background-size: 100% 100%;
+  background-image: linear-gradient(white, white);
+  display: inline;
+  background-repeat: no-repeat;
+  transition: all 500ms ease-in-out;
+  cursor: crosshair;
+  font-size: 16px;
+}
+.spoiler1:hover {
+  color: rgb(255, 0, 0);
+  background-size: 0% 100%;
 }

@@ -79,7 +79,7 @@ function UpdateEvent() {
               <span>A</span>
               <span>T</span>
               <span>E</span>
-              <span> &nbsp;&nbsp;&nbsp;</span>
+              <span> &nbsp;&nbsp;</span>
               <span>E</span>
               <span>V</span>
               <span>E</span>

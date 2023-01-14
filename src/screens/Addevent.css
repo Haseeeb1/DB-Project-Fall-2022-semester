@@ -195,9 +195,10 @@ p {
 }
 
 .animation {
-  height: 50px;
+  height: 27px;
   overflow: hidden;
-  margin-left: 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .animation > div > div {
@@ -261,11 +262,11 @@ p {
 .waviy span {
   position: relative;
   display: inline-block;
-  font-size: 32px;
+  font-size: 27px;
   font-weight: 500;
-  color: rgb(174, 174, 174);
+  color: #5a9a40;
   text-transform: uppercase;
-  animation: flip 6s infinite;
+  animation: flip 10s infinite;
   margin-bottom: 25px;
   margin-top: -5px;
 }
@@ -274,4 +275,11 @@ p {
   80% {
     transform: rotateY(360deg);
   }
+}
+
+.top_tag {
+  font-size: 18px;
+  font-weight: 500;
+  color: #5a9a40;
+  text-transform: uppercase;
 }
