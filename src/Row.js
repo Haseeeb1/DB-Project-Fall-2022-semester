@@ -3,6 +3,8 @@ import Carddeatails from "./Carddeatails";
 import "./Row.css";
 import { useNavigate } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/userSlice";
 
 function Row({ Category, isLargeRow, Data }) {
   const navigate = useNavigate();

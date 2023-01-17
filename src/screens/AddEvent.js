@@ -51,60 +51,62 @@ function AddEvent() {
       LocationRef.current.value == "" ||
       DateRef.current.value == "" ||
       FeeRef.current.value == "" ||
-      descriptionRef == "" ||
-      MaxRef.current.value == ""
+      descriptionRef == ""||
+      MaxRef.current.value == "" 
     ) {
       toast.error("Incomplete Credentials");
-      // } else if (!image) toast.error("Add Image to complete the form.");
-      // else {
-      //   if (image.size > 2097152) {
-      //     toast.error("Image too large, Maximum limit is 2mb.");
-      //     return;
-      //   }
-      // }
-    } else {
-      console.log(NameRef.current.value);
-      const formData = new FormData();
-      formData.append("name", NameRef.current.value);
-      formData.append("location", LocationRef.current.value);
-      formData.append("description", descriptionRef.current.value);
-      formData.append("registration_fee", FeeRef.current.value);
-      formData.append("people_going", 0);
-      formData.append("category", categoryRef.current.value);
-      formData.append("created_by", user.uid);
-      formData.append("date", DateRef.current.value);
-      console.log(formData);
-      formData.append("image", file);
-      axios
-        .post("http://localhost:5000/events", formData)
-        .then((ev) => {
-          console.log(ev.data);
-          NameRef.current.value = "";
-          categoryRef.current.value = "";
-          LocationRef.current.value = "";
-          DateRef.current.value = "";
-          FeeRef.current.value = "";
-          descriptionRef.current.value = "";
-          toast.success("Event Has Been Added!!!");
-        })
-        .catch((err) => {
-          console.log(err);
-          toast.error("Sorry Cant Add Event At The Moments");
-        });
+    // } else if (!image) toast.error("Add Image to complete the form.");
+    // else {
+    //   if (image.size > 2097152) {
+    //     toast.error("Image too large, Maximum limit is 2mb.");
+    //     return;
+    //   }
+    // }
     }
-  };
- 
+    else{
+      console.log(NameRef.current.value)
+      const formData = new FormData();
+      formData.append('name', NameRef.current.value);
+      formData.append('location', LocationRef.current.value);
+      formData.append('description', descriptionRef.current.value);
+      formData.append('registration_fee', FeeRef.current.value);
+      formData.append('people_going', 0);
+      formData.append('category', categoryRef.current.value);
+      formData.append('created_by', user.uid);
+      formData.append('date', DateRef.current.value);
+      formData.append('max_people', MaxRef.current.value)
+      console.log(formData)
+      formData.append('image', file);
+      axios.post('http://localhost:5000/events', formData)
+      .then(ev => {
+        console.log(ev.data)
+        NameRef.current.value = ""
+        categoryRef.current.value = "" 
+        LocationRef.current.value = "" 
+        DateRef.current.value = "" 
+        FeeRef.current.value = "" 
+        descriptionRef.current.value = ""
+        toast.success("Event Has Been Added!!!");
+      })
+      .catch(err => {
+        console.log(err);
+        toast.error('Sorry Cant Add Event At The Moments');
+      })
+    }
+  }
 
-  const onFileChange = async (e) => {
+  const onFileChange = async(e) =>{
     e.preventDefault();
     setFile(e.target.files[0]);
+
     // const data = new FormData();
     // data.append("image", e.target.files[0]);
     // console.log(data);
+
     //   await axios.post('http://localhost:5000/single', data)
     //   toast.success("Event Has Been Added!!!")})
     //   .catch(() => )
-  };
+  }
    */
 
   return (

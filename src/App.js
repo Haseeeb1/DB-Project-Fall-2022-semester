@@ -16,48 +16,34 @@ function App() {
   const [user, setUser] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
-      if (userAuth) {
-        dispatch(
-          login({
-            uid: userAuth.uid,
-            email: userAuth.email,
-          })
-        );
-      } else {
-        dispatch(logout());
-      }
-    });
-    return unsubscribe;
-  }, [dispatch]);
+  //   const [cookies, setCookies, removeCookies] = useCookies('[users]');
+  //   const user = useSelector(selectUser);
+  //   const dispatch = useDispatch();
+  //   console.log(user);
 
-  /*const [cookies, setCookies, removeCookies] = useCookies('[users]');
-    console.log(user);
+  //   const checkUserAndDispatch = () => {
+  //     console.log('cookies', cookies);
+  //     console.log('isAdmin:  ', typeof(cookies.isAdmin))
+  //     if(cookies.uid && cookies.email){
+  //       console.log('Login Dispatched')
+  //       dispatch(
+  //              login({
+  //               uid: cookies.uid,
+  //               email: cookies.email,
+  //               isAdmin: cookies.isAdmin,
+  //               image: cookies.image
+  //               }))
+  //     }
+  //     else{
+  //       console.log('Dispatch Logout')
+  //       dispatch(logout());
+  //     }
+  //     console.log('Ye Wala',user)
+  //   }
 
-     const checkUserAndDispatch = () => {
-      console.log('cookies', cookies);
-      if(cookies.uid && cookies.email){
-        console.log('Login Dispatched')
-        dispatch(
-               login({
-                uid: cookies.uid,
-                email: cookies.email,
-                isAdmin: cookies.isAdmin,
-                image: cookies.image
-                }))
-      }
-      else{
-        console.log('Dispatch Logout')
-        dispatch(logout());
-      }
-      console.log('Ye Wala',user)
-    }
-    
-  useEffect(() =>{
-    checkUserAndDispatch();
-  }, [dispatch])
-    */
+  // useEffect(() =>{
+  //   checkUserAndDispatch();
+  // }, [dispatch])
 
   return (
     <div className="app">

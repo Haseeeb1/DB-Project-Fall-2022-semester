@@ -34,10 +34,10 @@ function Carddeatails() {
   const [event, setEvent] = useState([]);
   const [ isFavourite, setIsFavourite ] = useState(false);
   const navigate = useNavigate();
-  const getEvent = () =>{
+   const getEvent = () =>{
     try{
       axios.get(`http://localhost:5000/events/${id}`)
-      .then(res => (setEvent(res.data[0])));
+      .then( res => (setEvent(res.data[0])));
       }
       catch(err){
         console.log(err)
@@ -58,9 +58,24 @@ function Carddeatails() {
     }
   }
 
+  const setIsRegisteredFunc = () =>{
+    try{
+      axios.post('http://localhost:5000/events/is-registered', 
+      {
+        "userId": user.uid,
+	      "eventId": id
+      })
+      .then(event => setIsRegistered(event.data));
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
   React.useEffect(() => {
     getEvent();
     setIsFavouriteFunc();
+    setIsRegisteredFunc();
   }, []);
 
   const addToFav = async() =>{
@@ -95,9 +110,42 @@ function Carddeatails() {
     });
   }
 
+  const addToRegistered = async() =>{
+    await axios.post('http://localhost:5000/events/add-to-registered',
+    {
+      'userId': user.uid,
+      'eventId': id
+    }).then(event => {
+      toast.success("Thanks For Registering To Our Event"); 
+      setIsRegistered(true);
+    })
+      .catch(err => {
+        toast.success("Can't Register At The Moment");
+    });
+  }
+
+  const removeFromRegistered = async() =>{
+    await axios.post('http://localhost:5000/events/remove-from-registered',
+    {
+      'userId': user.uid,
+      'eventId': id
+    }).then(event => { 
+      toast.success("Unregistered"); 
+      setIsRegistered(false);
+    })
+      .catch(err => {
+        toast.success("Error");
+    });
+  }
+
   const toggleFavourite = () =>{
     console.log(!isFavourite)
     !isFavourite ? addToFav() : removeFromFav();
+  }
+
+  const toggleRegistered = () =>{
+    console.log(!isFavourite)
+    !isRegistered? addToRegistered() : removeFromRegistered();
   }
 */
 
@@ -216,6 +264,29 @@ function Carddeatails() {
             <a onClick={() => setPayment(false)} className="btn">
               Back to Details
             </a>
+            /*
+          <>
+          {event.registration_fee !== 0 ? (
+                <a onClick={() => setPayment(true)} className="btn">
+                  {!isRegistered ? 
+                  "Pay Now" : 
+                  "Paid"}
+                </a>
+              ): <a onClick={toggleRegistered} download className="btn">
+              {!isRegistered ? 
+            "Register" : 
+            "UnRegister"}
+            </a>}
+          <button onClick={toggleFavourite} className="btn btn-primary">
+            {!isFavourite ? 
+            "Add to Favorites" : 
+            "Remove From Favourites"}
+            </button>
+           </>
+          ):( <a onClick={() => setPayment(false)} className="btn">
+          Back to Details
+        </a>
+          */
           )}
         </div>
       </div>

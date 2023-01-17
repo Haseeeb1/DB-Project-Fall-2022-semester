@@ -33,12 +33,13 @@ function Nav() {
       <img
         onClick={() => navigate("/profile")}
         className="nav__avatar"
-        /*
-    src={user.image ? `http://localhost:5000/resources/${user.image}` : 
-            "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"}  
-  */
         src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
         alt="Netflix Logo"
+
+        /*
+          src={`http://localhost:5000/resources/${user.image}`}
+        alt={`http://localhost:5000/resources/${user.image}`}
+          */
       />
     </div>
   );

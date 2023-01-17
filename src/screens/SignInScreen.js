@@ -28,14 +28,14 @@ function SignInScreen() {
   
   const getUser = async() =>{
     try{
-      console.log(user)
+    console.log(user);
     const res =  await axios.post("http://localhost:5000/auth/login",
     {
       email: emailRef.current.value,
 	    password: passwordRef.current.value,
     });
     const email = res.data.email; const uid =  res.data.id; const isAdmin  = res.data.isAdmin;
-    console.log(res.data)
+    console.log(res.data.email)
     setCookies('email', email);
     setCookies('uid', uid);
     setCookies('isAdmin', isAdmin)
@@ -77,17 +77,19 @@ function SignInScreen() {
     formData.append('dob', DOBRef.current.value)
     formData.append('image', file)
     const res = await axios.post('http://localhost:5000/auth/register/', formData);
-    const email = res.data.email; const uid =  res.data.id; const isAdmin = res.data.isAdmin;
+    const email = res.data.email; const uid =  res.data.id; const isAdmin = res.data.isAdmin; const image = res.data.image
     console.log(isAdmin)
     setCookies('email', email);
     setCookies('uid', uid);
     setCookies('isAdmin', isAdmin);
+    setCookies('image', image);
     console.log('Cookies',cookies);
     dispatch(
       login({
         uid: res.data.id, 
         email: res.data.email,
-        isAdmin: res.data.isAdmin
+        isAdmin: res.data.isAdmin,
+        image: res.data.image
       }
       )
     );
@@ -116,12 +118,10 @@ function SignInScreen() {
     //   emailRef.current.value === "" ||
     //   passwordRef.current.value === "" ||
     //   phoneRef.current.value === "" ||
-    //   regIDRef.current.value === "" ||
-    //   securityQuesRef.current.value===""      
+    //   regIDRef.current.value === ""
     // ) {
     //   toast.error("Incomplete Credentials");
-    // } 
-    //   else if (!isValidEmail(emailRef.current.value)) {
+    // } else if (!isValidEmail(emailRef.current.value)) {
     //   toast.error("Email is invalid.");
     // } else if (passwordRef.current.value.length < 7) {
     //   toast.error("Password too short.");

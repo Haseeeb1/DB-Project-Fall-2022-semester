@@ -65,6 +65,94 @@ function UpdateEvent() {
     //   .catch(() => )
   };
 
+  {
+    /*
+ const search = useLocation().search;
+  const id = new URLSearchParams(search).get('eventId');
+  
+  const [file, setFile] = useState(null);
+  
+  const [name, setName] = useState('');
+  const [fee, setFee ] = useState(0);
+  const [location, setLocation] = useState('');
+  const [desc, setDesc] = useState('');
+  const [date, setDate] = useState('');
+  const [seats, setSeats] = useState('');
+  const [category, setCategory] = useState('');
+
+  const getEvent = () =>{
+    try{
+      axios.get(`http://localhost:5000/events/${id}`)
+      .then( res => {
+      setName(res.data[0].name);
+      setFee(res.data[0].registration_fee);
+      setLocation(res.data[0].location);
+      setDesc(res.data[0].desription);
+      setDate(res.data[0].date);
+      setSeats(res.data[0].max_people);
+      setCategory(res.data[0].category);
+      });
+      }
+      catch(err){
+        console.log(err)
+      }
+  }
+
+
+  React.useEffect(() => {
+    getEvent();
+  },[])
+
+  const Update = (e) => {
+    e.preventDefault();
+    if (
+      name == "" ||
+      fee == "" ||
+      location == "" ||
+      desc == "" ||
+      date == "" ||
+      seats == "" ||
+      category == ""
+    ) {
+      toast.error("Incomplete Credentials");
+    } 
+    else {
+      const formData = new FormData();
+      formData.append('eventId', id)
+      formData.append('name', name);
+      formData.append('location', location);
+      formData.append('description', desc);
+      formData.append('registration_fee', fee);
+      formData.append('category', category);
+      formData.append('date', date);
+      formData.append('max_people', seats);
+      if(file){
+        formData.append('image', file)
+      }
+      axios.patch('http://localhost:5000/events', formData).then(res => {
+        if(res.status === 200){
+          toast.success("Event Updated!!!")
+        }
+          else{
+            toast.success("Cant Update At The Moment")
+          }
+      })
+      } 
+  };
+
+  const onFileChange = async (e) => {
+    e.preventDefault();
+    setFile(e.target.files[0]);
+    // const data = new FormData();
+    // data.append("image", e.target.files[0]);
+    // console.log(data);
+    //   await axios.post('http://localhost:5000/single', data)
+    //   toast.success("Event Has Been Added!!!")})
+    //   .catch(() => )
+  };
+    */
+  }
+
   return (
     <div className="AddEvent_screen">
       <Nav />
